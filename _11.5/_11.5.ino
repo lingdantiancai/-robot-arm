@@ -1,7 +1,7 @@
 #include <Servo.h>
 Servo servo1;
 Servo servo2;
-const int top=10;//动作组存储上限
+const int top=100;//动作组存储上限
 int myInts1[top],myInts2[top];//存储动作组的数组
 int i=0,n=0;//动作组的序数
 int pos1=0,pos2=0;
@@ -44,7 +44,7 @@ void loop(){
     n=i;
     Serial.println(String("Get pos ")+i);
     digitalWrite(13,HIGH);
-    delay(300);
+    delay(100);
     digitalWrite(13,LOW);
     }
       if(digitalRead(6) == HIGH)//按键后这里执行数组里面存储的动作组
@@ -54,7 +54,7 @@ void loop(){
                   {
                     goservo();
                     Serial.println(String("Doing step ")+i);
-                    delay(1000);
+                    delay(50);
                     }
           i=0;
           delay(1000);
@@ -78,27 +78,29 @@ void goservo()
        servo1.write(pos1); 
        servo2.write(pos2);
   }
-void yunxing()
-  {
-    int current1;
-    int current2;
-    current1 = servo1.read();
-    current2 = servo2.read();
-    while(current1 - myInts1[i+1]>0||current2 - myInts2[i+1]>0)
-    {
-      servo1.write(current1);;
-      current1++;
-      servo1.write(current2);;
-      current2++;
-      }
-      while(current1 - myInts1[i+1]<0||current2 - myInts2[i+1]<0)
-      {
-        servo1.write(current1);
-        current1--;
-        servo1.write(current2);
-        current2--;
-        }
-        ////////////////第二个舵机
+//void yunxing()
+//  {
+//    int current1;
+//    int current2;
+//    current1 = servo1.read();
+//    current2 = servo2.read();
+//    while(current1 - myInts1[i+1]>0||current2 - myInts2[i+1]>0)
+//    {
+//      servo1.write(current1);;
+//      current1++;
+//      servo1.write(current2);;
+//      current2++;
+//      }
+//      while(current1 - myInts1[i+1]<0||current2 - myInts2[i+1]<0)
+//      {
+//        servo1.write(current1);
+//        current1--;
+//        servo1.write(current2);
+//        current2--;
+//        }
+
+        
+////////////////第二个舵机
 //            while(current2 - myInts2[i+1]>0)
 //      {
 //        servo1.write(current2);;
@@ -109,4 +111,4 @@ void yunxing()
 //          servo1.write(current2);
 //          current2--;
 //          }
-    }
+  //  }
