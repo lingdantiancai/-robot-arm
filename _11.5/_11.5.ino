@@ -78,3 +78,35 @@ void goservo()
        servo1.write(pos1); 
        servo2.write(pos2);
   }
+void yunxing()
+  {
+    int current1;
+    int current2;
+    current1 = servo1.read();
+    current2 = servo2.read();
+    while(current1 - myInts1[i+1]>0||current2 - myInts2[i+1]>0)
+    {
+      servo1.write(current1);;
+      current1++;
+      servo1.write(current2);;
+      current2++;
+      }
+      while(current1 - myInts1[i+1]<0||current2 - myInts2[i+1]<0)
+      {
+        servo1.write(current1);
+        current1--;
+        servo1.write(current2);
+        current2--;
+        }
+        ////////////////第二个舵机
+//            while(current2 - myInts2[i+1]>0)
+//      {
+//        servo1.write(current2);;
+//        current2++;
+//        }
+//        while(current2 - myInts2[i+1]<0)
+//        {
+//          servo1.write(current2);
+//          current2--;
+//          }
+    }
