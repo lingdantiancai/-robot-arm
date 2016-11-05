@@ -70,9 +70,11 @@ void loop(){
 
   pos4 = map(y,0,1023,0,180);
   Serial.println(pos4);
+  servo4.write(pos4);
 
   pos5 = map(z,0,1023,0,180);
   Serial.println(pos5);
+  servo5.write(pos5);
   delay(250);
 
   
