@@ -96,7 +96,7 @@ void goservo()
        pos1 = myInts1[i];
        pos2 = myInts2[i];
        pos3 = myInts3[i];
-       pos4 = myInts4[4];
+       pos4 = myInts4[i];
        servo1.write(pos1); 
        servo2.write(pos2);
        servo3.write(pos3);
